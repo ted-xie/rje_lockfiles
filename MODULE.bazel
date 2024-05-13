@@ -1,0 +1,23 @@
+module(
+  name = "rje_lockfiles",
+  version = "0.0.1",
+)
+
+bazel_dep(name = "rules_jvm_external", version = "6.1")
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+
+maven.install(
+    artifacts = [
+        "org.seleniumhq.selenium:selenium-java:4.16.1",
+    ],
+    repositories = [
+        "https://repo1.maven.org/maven2",
+    ],
+    lock_file = "//:maven_install_bzlmod.json",
+)
+
+use_repo(
+    maven,
+    "maven",
+)
