@@ -15,6 +15,8 @@ maven.install(
         "https://repo1.maven.org/maven2",
     ],
     lock_file = "//:maven_install_bzlmod.json",
+    # Uncomment to try using the non-bzlmod lockfile
+    # lock_file = "//:maven_install_nobzlmod.json",
 )
 
 use_repo(
